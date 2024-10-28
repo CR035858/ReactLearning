@@ -1,0 +1,58 @@
+li{
+    margin: 20px;
+    list-style: none;
+    display: flex;
+    border: 1px solid #cc4;
+    border-radius: 10px;
+    padding: 10px;
+    max-height: 30px;
+}
+
+li .task{
+    margin-left: 0;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 24px;
+    text-align: center;
+}
+
+li .buttons{
+    margin-left: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+li .buttons button{
+    margin-left: 20px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    right: 0;
+    font-size: 24px;
+}
+
+.incomplete{
+    color: green;
+}
+
+.complete{
+    color: orangered;
+}
+
+.edit{
+    color: rgb(2, 2, 80);
+}
+.remove{
+    color: rgb(117, 2, 2);
+}
+
+.completed{
+    text-decoration: line-through;
+    color: gray;
+}
+
