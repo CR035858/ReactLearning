@@ -1,0 +1,147 @@
+ReactJS From Scratch
+
+Installations
+Node JS Installation
+Visual Studio Code Editor
+
+-------------
+In the New Project of TERMINAL
+
+1) npm init -y
+2) install react -dom
+3)  npm install @babel/core @babel/preset-env @babel/preset-react babel-loader
+
+Installing Babel PreProcessor 
+a) Core 
+b) env - for Transpilation of > ES6 codes to Browser specific JS codes
+c) JSX react code to vanilla react 
+d) loader connecting babel to webpack [package takes react and combines it to run it on browser
+
+DROPPED THE ABOVE VIDEO
+https://www.youtube.com/watch?v=EUM78cxo0i8
+
+=====================================
+STARTED MOSH VIDEOS BEAUTIFUL
+
+https://www.youtube.com/watch?v=SqcY0GlETPk
+
+1)INSTALL nodejs 16 and above
+2) VSCode with Prettier Formatter extension installed
+3) Under the Extensions - install Prettier Code Formatter
+after which under File - > Preferences - > settings select Editor Format On Save option to be checked 
+
+1) Since he started using vite+React dropped
+===================================================
+Started CODEVOLUTION VIDEOS
+https://www.youtube.com/watch?v=QFaFIcGhPoM&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3
+
+https://www.youtube.com/watch?v=m7OWXtbiXX8&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=10 currently on 3 May 2024 6.48 pm
+
+Next on Monday 10 Video
+IN Visual Studio Code
+after getting inside a Folder say "FirstReactApp"
+in the terminal
+---- give command npx create-react-app helloworld
+---- next give command cd hellowworld
+---- next give command npm start
+-----------------------------------------It runs the app successfully
+
+"ES7 React/Redux/GraphQL/React-Native snippets" ---
+
+Above Extension needed for Video 11 onwards
+
+rce short cut
+rfce 
+rconst rconstructor
+
+
+10 May 2024 Fri 8.30 Completed Video 15 of Codevolution
+
+2nd ROUND Video 8 completed 14 May 2024
+
+Video 8 completed 10 in Progress 15 May 2024
+
+Video 10 Completed 20 May 2024
+
+Video 12 Completed on 22 May 2024
+https://www.youtube.com/watch?v=5_PdMS9CLLI&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=12
+
+TO START ON 23 May 2024 
+Video 13
+https://www.youtube.com/watch?v=Znqv84xi8Vs&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=13
+
+======================
+AUTHENTIC JS TUTOR
+developer.mozilla.org/en-US/docs/Web/Javascript/Reference
+========================
+
+23 May 2024 - In PROGRESS https://www.youtube.com/watch?v=5s8Ol9uw-yM&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=17
+
+================= ========
+Currently going through this as on 06 Jun 2024
+https://www.youtube.com/watch?v=qnN_FuFNq2g&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=22
+
+Currentl going through this as on 7 Jun 2024
+https://www.youtube.com/watch?v=DyPkojd1fas&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=24
+
+Current on 7 Jun 2024
+https://www.youtube.com/watch?v=YCRuTT31qR0&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=26
+
+Pure Component will be re-rendered 
+only if the state n prop are changed with ref to Shallow Compare
+------------------------------
+as on 10 Jun 2024 in progress
+https://www.youtube.com/watch?v=7TaBhrnPH78&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=27
+
+REVISIT on 14 Jun 2024 to continue...
+https://www.youtube.com/watch?v=YCRuTT31qR0&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=26
+
+CURRENT AS ON 24 Jun 2024
+https://www.youtube.com/watch?v=DNYXgtZBRPE&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=32
+
+----------------------------------
+CURRENT AS ON 02 Jul 2024
+https://www.youtube.com/watch?v=B6aNv8nkUSw&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=33
+
+CURRENT AS ON 03 Jul 2024
+https://www.youtube.com/watch?v=rsBQj6X7UK8&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=34
+
+CURRENT AS ON 10 Jul 2024
+https://www.youtube.com/watch?v=l8V59zIdBXU&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=35
+
+CURRENT AS ON 16 Jul 2024
+https://www.youtube.com/watch?v=EZil2OTyB4w&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=37
+
+CURRENT AS ON 6 Aug 2024
+https://www.youtube.com/watch?v=A9WlkhdLnn0&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=40
+
+CURRENT AS ON 7 AUG 2024
+https://www.youtube.com/watch?v=GTmjthNvrxY&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=41
+
+https://www.youtube.com/watch?v=x9UEDRbLhJE&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=43
+
+CURRENT AS ON 9 AUG 2024
+https://www.youtube.com/watch?v=-3lL8oyev9w&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=46
+
+VIBHUTHI
+https://www.msn.com/en-in/money/technology/sadhguru-writes-about-the-science-of-vibhuti-and-where-to-apply-it-to-receive-the-divine-around-you/ar-AA1hadbv?rc=1&ocid=winp1taskbar&cvid=b31cbeff45c24cfea53052bbb5bea760&ei=34
+
+COMPLETED on 21 Aug 2024
+https://www.youtube.com/watch?v=nAuWOnFMlOw&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=49
+
+IN PROGRESS on 26 Aug 2024
+https://www.youtube.com/watch?v=DTlmk6QeOHY&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=52
+
+COMPLETED - YET REVIEW ONCE AS ON 28 Aug 2024 
+https://www.youtube.com/watch?v=SP-NrbQHFww&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=53
+
+AS ON 29 / 30 Aug 2024 - In PROGRESS
+https://www.youtube.com/watch?v=bYFYF2GnMy8&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=54
+
+https://www.youtube.com/watch?v=cVYp4u1m6iA&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=59
+
+CURRENT 02 SEP 2024
+https://www.youtube.com/watch?v=cVYp4u1m6iA&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=59
+
+CURRENT 09 Sep 2024
+https://www.youtube.com/watch?v=uX7lxFrWUbA&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=61
