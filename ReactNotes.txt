@@ -1,0 +1,649 @@
+NOTES
+
+Component Based
+ReactJS follows a component based Architecture where Components are UI based
+elements which can form a Web Page
+
+Declarative(Not imperative)
+Tell react what we want and react will build the actual UI
+
+Easily Integrated with any application/Technology
+
+	- REST API created on any technology like Python/PHP/.Net/JEE
+
+Path - Study
+1) Fundamentals
+2) HTTP
+3) Routing
+4) Redux
+5) Utilities - Hooks
+
+16.52
+------------------------------------------------------------
+Components are elements that make up Pages
+Components can be placed with others all Components should be 
+contained within root component in app.js
+Codes within JS files [ also it can be jsx or tsx or js files]
+Types:
+ Stateless Functional Component - function return html tag
+ Stateful Class Component - class extends Component with a render method which returns html element
+
+Functional Components  
+ - JavaScript Function that accepts input properties and returns html
+Convention is to use Arrow functions
+
+
+-------------------------------------------
+
+We can bind onClick to eventHandlers which can be 
+defined within class Components
+
+But we cannot refer to this.setState() within eventHandlers
+since this is not recognized within user defined event handlers
+
+so Binding of event Handler is required
+REFER: Demo componentsample4 ----> EVENT BIND.js
+
+
+
+
+
+---------------------------------------------------------------
+PROPS vs STATE
+
+Props are like function parameters
+Props are immutable
+Gets passed to the Component 
+----props -FunctionalComponents
+----this.props - Class Components
+
+STATE
+is managed within the component
+Variables declared in the function body - analogy
+state can be changed
+	useState Hook - Functional Components
+	this.state - Class Components
+
+
+Changing the "state" value directly anywhere will not be rendered on UI
+always do this using setState  for the reflection to happen in UI
+
+If Code has to be executed after state has been updated
+Place that code in the call back function which is the second argument to the setState method
+
+When you have to update state based on the previous state value
+pass in a function as an argument instead of the regular object
+CHECK DEMO componentsample4 ----> counter.js
+
+EVENT HANDLING :
+METHOD 1:
+
+class EventBind extends Component {
+
+constructor(props) {
+      super(props)
+    
+      this.state = {
+         message : 'Hello'
+      }
+      
+    }
+
+
+ clickHandler()
+    {
+      this.setState({
+            message : 'Good Bye'
+        })
+        console.log(this)
+    } 
+
+
+
+ render() {
+    return (
+      <div>
+        <div>{this.state.message}</div>
+        	<button onClick={this.clickHandler.bind(this)}>Click Here</button> 
+         </div>
+    )
+  }
+
+}
+
+-----------------------------
+METHOD 2:
+
+
+
+class EventBind extends Component {
+
+  constructor(props) {
+      super(props)
+    
+      this.state = {
+         message : 'Hello'
+      }
+     
+    }
+
+
+
+
+    clickHandler()
+    {
+      this.setState({
+            message : 'Good Bye'
+        })
+        console.log(this)
+    } 
+
+
+ render() {
+    return (
+      <div>
+        <div>{this.state.message}</div>
+       
+       <button onClick={() => this.clickHandler()}> Click Here Again</button> 
+       
+      </div>
+    )
+  }
+
+}
+
+-------------------------------------
+METHOD 3:
+
+class EventBind extends Component {
+    constructor(props) {
+      super(props)
+    
+      this.state = {
+         message : 'Hello'
+      }
+       this.clickHandler = this.clickHandler.bind(this) 
+    }
+   
+    clickHandler()
+    {
+      this.setState({
+            message : 'Good Bye'
+        })
+        console.log(this)
+    } 
+
+
+  render() {
+    return (
+      <div>
+        <div>{this.state.message}</div>
+             <button onClick={this.clickHandler}>Click Here 3rd Time </button>
+      </div>
+    )
+  }
+}
+
+-------------------------------------------
+METHOD 4:
+
+class EventBind extends Component {
+    constructor(props) {
+      super(props)
+    
+      this.state = {
+         message : 'Hello'
+      }
+      
+    }
+
+    clickHandler = () => {
+        this.setState ({
+            message : 'GoodBye!'
+        })
+    }
+  render() {
+    return (
+      <div>
+        <div>{this.state.message}</div>
+              <button onClick={this.clickHandler}>Click Here 3rd Time </button>
+      </div>
+    )
+  }
+}
+------------------------------------------------------------------------------------------------------------------------
+
+FRAGMENT:
+
+in a RFCE / RCE 
+render method renders all elements of a component within a <div> or a container element,
+without which the content of the Component cannot be rendered
+
+By replacing this container element with a FRAGMENT
+<React.Fragment>
+
+</React.Fragment>
+
+DOM tree can be eliminated from the use of this additional node ,
+as the container tag, by replacing this div or container with FRAGMENT, where the additional div/container is not rendered
+
+FRAGMENT finds more meaningful application
+in the following scenario
+
+suppose we have a Table Component Table.js
+<div>
+<table>
+	<tr>
+
+	</tr>
+</table>
+</div
+
+we wish to include a Columns Component in the above Table Component
+
+Columns.js
+<div>
+	<td></td>
+	<td></td>
+</div>
+--------------------------The Table component may look as given below
+
+<div>
+<table>
+	<tr>
+		<Column />
+	</tr>
+</table>
+
+
+</div>
+But in the Column component we may encounter a warning for enclosing the td's within a div instead, we can enclose using the FRAGMENT,
+to avoid the warnings/errors
+
+Columns.js can be re-written as
+<React.Fragment>
+	<td></td>
+	<td></td>
+</React.Fragment>
+
+Thus FRAGMENT is useful to make the DOM tree simplified.
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+RegularComponents VS PureComponents
+
+PureComponents will not be ReRendered unless & until there is Change in
+a State or Prop 
+thus improving Performance
+whereas the RegularComponents will be ReRendered irrespective of the 
+State/Prop change
+PureComponents can be used while dealing with Performance Critical apps
+Pure Components work with only Class based Components
+Pure component implements shouldComponentUpdate with a shallow comparison
+on the props and state of the component
+Regular component does not implement the "shouldComponentUpdate"
+it always return true by default.
+------------------------
+MEMOS
+Memos provide the same functionality to the Function Components
+just as the PureComponents Provide to the  Regular Components
+
+===================================================================
+REFs
+REFs enable use to access DOM nodes directly.
+Refs cannot be attached to a Functional Component, they can be plugged only in the Class Component
+
+========================
+FORWARDING REF
+Forwarding Ref is a technique by which one can pass the
+"Ref" automaitically from Parent Component to Child Component.
+====================================================================
+Ref Forwarding may be rarely used 
+=====================================================================
+REACT PORTALS
+React Portals help in
+rendering children into
+Dom Node that exists outside the Dom Hierarchy Of the Parent Element
+------------------------------------------------------------------
+HIGHER ORDER COMPONENTS
+To share common functionality between components
+A Pattern where a function takes a component as an argument and returns a New Component
+
+const NewComponent = higherOrderComponent(originalComponent)
+
+Typically HOC adds functionality data to the Original Component- In Enhanced Format
+
+const IronMan = withSuit(TonyStark)
+
+---------------------------------------------------------------------
+RENDER PROPS
+
+Refers to a technique for sharing Code
+between React Components using a 
+PROP whose value is a function
+
+---------------------------------------------------------------------
+CONTEXT
+	Context provides a way to pass data through the component tree
+	without having to pass props down manually at every level.
+
+
+CONTEXT s can be consumed as follows without using ContextConsumer
+using {this.context}
+
+for which we have to use either of the following outside the Consuming component - class in our case ComponentE
+ComponentE.contextType = UserContext 
+
+OR WITHIN THE CLASS
+
+static contextType = UserContext
+
+------------------------------------------
+
+import React, { Component } from 'react'
+import ComponentF from './ComponentF'
+import { UserConsumer } from './userContext'
+import UserContext from './userContext'
+class ComponentE extends Component {
+  static contextType = UserContext
+  render() {
+    return (
+        <div>
+          Component E context {this.context}
+    <UserConsumer>
+        {
+            username => {
+
+                    return <div> Hello {username} </div>
+            }
+        }
+     </UserConsumer>
+             <ComponentF />
+        </div>
+    )
+   
+  }
+}
+/* 
+ANOTHER WAY TO USE CONTEXT IS 
+
+ComponentE.contextType = UserContext 
+
+-- TO USE THE CONTEXT USING {this.context} as in LINE 10
+
+*/
+export default ComponentE
+
+
+===============================================================================
+But the above method can be used only in CLASS COMPONENT and only with single CONTEXT VALUE
+for example when we have multiple CONTEXT values we cannot use it
+Multiple CONTEXT values can be used in the following way'
+
+function content() {
+return (
+<ThemeContext.Consumer>
+{ theme => (
+	<UserContext.Consumer>
+	{ user => (
+		<ProfilePage user={user} theme={theme} />
+	)}
+	</UserContext.Consumer>
+
+)}
+</ThemeContext.Consumer>
+)
+}
+===========================================================================
+					needs
+React-Web App ------------------------- HTTP libraries-------------to Communicate To---------->SERVER
+
+axios is one such library used to handle http requests to communicate with server
+
+Install axios
+
+In the terminal:
+inside the Project Folder
+cmd to be given : npm install axios  [Note it is axios not Axios - it is case sensistive]
+
+
+JSONPlaceholder
+GUIDE : https://jsonplaceholder.typicode.com/guide/
+
+CORS-Spring Doc
+https://spring.io/guides/gs/rest-service-cors
+
+https://jsonplaceholder.typicode.com
+
+https://jsonplaceholder.typicode.com/posts
+
+Formic - Library to deal with Forms in REACT
+REDUX axios another flavour of libraries to talk to server
+
+
+Using REST API of spring
+C:\GreatLearningOfficial\Academics\GLCA\GLCASolutionsForShortSubj\studentapi
+
+---------------------------------------------------------------------------------------
+REACT HOOKS
+Hooks are a new feature added in React version 16.8 which allow you to use react features without having to write a class
+Eg. state, props etc
+Hooks do not work inside a class
+
+Advantages- 
+this - keyword, complexity, event handler binding
+issues in classes can be eliminated using Hooks
+
+
+Creating components for complex scenarios such as data fetching and subscribing to events
+they are nor organized in one place
+eg. Data Fetching - in componentDidMount and componentDidUpdate
+EventListeneres - In componentDidMount and componentWillUnmount
+
+Noteworthy Points:
+
+React Version 16.8 and higher
+Optional, we can still use Classes
+it is backward compatible
+Cannot use Hooks within a class
+Hooks do not replace the existing conceptual elements, but provide a more direct API to implement the same.
+
+states can be used only in Class components
+
+RULES - HOOKS
+ONLY CALL HOOKS at the TOP LEVEL
+Do not call Hooks inside loops, conditions or nested functions
+
+Onlyc Call Hooks from React Functions
+Call them from within React functional components and not just in any regular javascript function
+
+
+================================CLASS COMPONENT + state + stateIncrementor VS useState Hook======================================
+
+import React, { Component } from 'react'
+
+class ClassCounter extends Component {
+    constructor(props) {
+      super(props)
+    
+      this.state = {
+         count : 0
+      }
+    }
+    incrementCount = () => {
+        this.setState({
+            count : this.state.count + 1
+        })
+    }
+  render() {
+    return (
+      <div>
+        <button onClick={this.incrementCount}>Count {this.state.count}</button>
+      </div>
+    )
+  }
+}
+
+export default ClassCounter
+
+-----------------------------------------------------USE STATE HOOK Implementation------------------------------------------------
+
+import React ,{useState} from 'react'
+/* We are simulating the ClassCounter component through function component
+ i.e Here, Instead of using a Class Based Component
+function component is used,In a function component "state" cannot be implemented
+hence we use "useState" Hook which does both activities of
+a) Creating a State 
+b) Invoking a function to operate upon the state variable - Handler
+    */
+
+function HookCounter() {
+    /* state variable name -  count the handler function - setCount 
+DeStructuring the useState Hook function s returned Object into necessary custom objects
+In this case count variable and setState function*/
+    const [count,setCount] = useState(0)
+  return (
+    <div>
+      <button onClick={() => setCount(count + 1)}>Count {count}</button>
+    </div>
+  )
+}
+
+export default HookCounter
+
+=============================================================================================
+setState of Class Component can merge the elements of a state
+for example name = firstName,lastName etc
+
+But 
+
+useState hook will not merge the elements
+we have to manually do it using SPREAD Operator as shown below:
+
+WITHOUT MERGER:
+function HookCounter2() {
+    const [name, setName] = useState({firstName : '',lastName: ''})
+  return (
+    <div>
+      <form>
+        <input type="text" 
+        value ={name.firstName}
+        onChange ={e => setName( {firstName:e.target.value})}
+        />
+        <input type="text" 
+        value ={name.lastName}
+        onChange ={e => setName( {lastName:e.target.value})}
+        />
+        <h2>Your First Name is {name.firstName} </h2>
+        <h2>Your Last Name is {name.lastName} </h2>
+        <h2>{JSON.stringify(name)}</h2>
+      </form>
+    </div>
+  )
+
+WITH MERGER:
+
+function HookCounter2() {
+    const [name, setName] = useState({firstName : '',lastName: ''})
+  return (
+    <div>
+      <form>
+        <input type="text" 
+        value ={name.firstName}
+        onChange ={e => setName( {...name, firstName:e.target.value})}
+        />
+        <input type="text" 
+        value ={name.lastName}
+        onChange ={e => setName( {...name, lastName:e.target.value})}
+        />
+        <h2>Your First Name is {name.firstName} </h2>
+        <h2>Your Last Name is {name.lastName} </h2>
+        <h2>{JSON.stringify(name)}</h2>
+      </form>
+    </div>
+  )
+-------------------------------------------------------------------------------------
+
+The useState hook lets one to add state to functional components
+
+In classes , the state is always an object
+
+With the useState hook, the state does nt have to be an object
+
+The useState hook returns an array with 2 elements
+ First Element is the current value of the state and the second element is a state setter function
+
+New state value depends on the previous state value? You can pass a function to the setter function.
+
+When dealing with objects or arrays, always make sure to spread your state variable and then call the setter function.
+ 
+
+=============================
+USEEFFECT
+
+useEffect Hook Method
+Effect Hook lets us perform side effects in functional components
+It is a close replacement for componentDidMount,componentDidUpdate and componentWillUnmount
+
+which helps in reducing redundant codes , which may occur ,when used without these hooks
+
+UseEffect runs after every render
+
+Effect can be made to run 
+i)  conditionally
+ii) Only Once  using empty array as second argument
+
+
+If Empty dependency array is passed in useEffect it is run only once
+But if we want the useEffect to track some state variable, every time it is rendered,
+then it has to be included in the array.
+
+------------------------------------------------
+UseEffect with CleanUp
+
+include CLEANUP in a function
+and return that function from the function passed UseEffect
+cancel subscription, timers, remove eventlisteners etc...
+
+/*
+      Whenever CleanUp activity is to be done as shown below
+      that can be done by a return function, within the useEffect function
+      which in ClassComponenent would be done in  componentWillUnmount() method
+      */
+
+------------------------------------------------
+useReducer
+Is a hook that is used for STATE MANAGEMENT
+it ks an alternative to useState
+but we already have one called useState
+well useState is built using useReducer
+Is related to Reducer functions
+useReducer(reducer,initialState)
+reducer(currentState,action)
+
+useState - state
+useEffect - side effects
+useContext - context API
+useReducer - reducers
+what is a Reducer
+If you know redux it will make life easy to understand reducer
+
+------------------------------------------------
+Context
+Use to share props across the Hierarchy of Components directly
+without being used in every layer to pass
+
+3 Steps 
+1) Create Context
+2) Provide a Value
+3) use import useContext
+
+
+
+
+
+
+
